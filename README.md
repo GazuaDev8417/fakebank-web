@@ -6,4 +6,4 @@ Aplicativo para operações bancárias como saldo, depósito e transferência. O
 
 >Obs.: O app está em contínuas atualizações, podendo assim ser agregada n outras funcionalidades.
 
->Deploy da aplicação: https://labebank-frontend.vercel.app/
+>Deploy da aplicação: https://fakebank-web.onrender.com/
