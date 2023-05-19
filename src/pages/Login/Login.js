@@ -12,10 +12,14 @@ const Container = styled.div`
 	box-shadow: 3px 3px 7px;
 	padding: 10px;
 
-	@media(max-width: 500px){
+	@media(max-width: 600px){
 		width: 80vw;		
 	}
 	
+	@media(max-width: 800px){
+		width: 80vw;		
+	}
+
 	form{
 		display: flex;
 		flex-direction: column;
@@ -41,13 +45,21 @@ const Container = styled.div`
 			color:whitesmoke;
 		}
 
-		@media(max-width: 500px){
+		@media(max-width: 600px){
+			width: 25vw;
+		}
+
+		@media(max-width: 800px){
 			width: 25vw;
 		}
 	}
 
 	input{
-		@media(max-width: 500px){
+		@media(max-width: 600px){
+			width: 70vw;
+		}
+
+		@media(max-width: 800px){
 			width: 70vw;
 		}
 	}
@@ -57,7 +69,11 @@ const Container = styled.div`
 		border-radius: 20px;
 		width: 10vw;
 
-		@media(max-width: 500px){
+		@media(max-width: 600px){
+			width: 25vw;
+		}
+
+		@media(max-width: 800px){
 			width: 25vw;
 		}
 	}

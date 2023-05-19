@@ -8,7 +8,7 @@ export const Container = styled.div`
 	box-shadow: 3px 3px 7px;
 
 
-	@media(max-width: 500px){
+	@media(max-width: 800px){
 		width: 80vw;
 	}
 	
@@ -39,7 +39,7 @@ export const Container = styled.div`
 			color:whitesmoke;
 		}
 
-		@media(max-width: 500px){
+		@media(max-width: 800px){
 			width: 25vw;
 		}
 	}
@@ -47,7 +47,7 @@ export const Container = styled.div`
 	input{
 		width: 30vw;
 
-		@media(max-width: 500px){
+		@media(max-width: 800px){
 			width: 60vw;
 		}
 	}
@@ -56,6 +56,10 @@ export const Container = styled.div`
 		width: 100px;
 		border-radius: 20px;
 		color: black;
+
+		@media(max-width: 800px){
+			width: 25vw;
+		}
 	}
 
 `

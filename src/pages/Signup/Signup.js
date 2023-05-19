@@ -14,7 +14,7 @@ const Container = styled.div`
 	border-radius: 10px;
 	box-shadow: 3px 3px 7px;
 
-	@media(max-width: 500px){
+	@media(max-width: 800px){
 		width: 80vw;
 	}
 
@@ -32,14 +32,14 @@ const Container = styled.div`
 	input{
 		width: 30vw;
 
-		@media(max-width: 500px){
+		@media(max-width: 800px){
 			width: 60vw;
 		}
 	}
 	input[type='date']{
 		width: 30vw;
 
-		@media(max-width: 500px){
+		@media(max-width: 800px){
 			width: 60vw;
 		}
 	}
@@ -60,7 +60,7 @@ const Container = styled.div`
 			color: whitesmoke;
 		}
 
-		@media(max-width: 500px){
+		@media(max-width: 800px){
 			width: 25vw;
 		}
 	}
@@ -70,7 +70,7 @@ const Container = styled.div`
 		border-radius: 20px;
 		color: black;
 
-		@media(max-width: 500px){
+		@media(max-width: 800px){
 			width: 25vw;
 		}
 	}
