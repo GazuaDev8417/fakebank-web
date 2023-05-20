@@ -22,6 +22,10 @@ const Container = styled.div`
 		&:hover{
 			transform: scale(1.02)
 		}
+
+		@media(max-width: 800px){
+			width: 70vw;
+		}
 	}
 `
 

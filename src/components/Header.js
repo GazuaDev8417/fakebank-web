@@ -11,6 +11,21 @@ const Container = styled.div`
 	justify-content: space-between;
 	margin-bottom: 15vh;
 	
+	.home-icon{
+		font-size: 2rem;
+
+		@media(max-width: 800px){
+			font-size: 1.3rem
+		}
+	}
+
+	.logout-icon{
+		font-size: 2rem;
+
+		@media(max-width: 800px){
+			font-size: 1.3rem
+		}
+	}
 	
 	#select{
 		display: none;
@@ -23,9 +38,12 @@ const Container = styled.div`
 
 		#select{
 			display: block;
+			.select{
+				width: 60vw;
+				height: 35px;
+			}
 		}
-	}
-	
+	}	
 
 	button{
 		margin: 5px;
@@ -67,7 +85,7 @@ const Header = ()=>{
 
 
 	return<Container>
-			<AiFillHome style={{fontSize:'2rem', cursor:'pointer'}}
+			<AiFillHome className='home-icon'
 				onClick={()=> history('/')} />
 			<div id='btn-container'>
 				<button onClick={()=> history('/balance')}>Saldo</button>
@@ -79,7 +97,7 @@ const Header = ()=>{
 			</div>
 			<div id='select' onChange={handleSelect}
 				value={selectedOption}>
-				<select className='form-select'>
+				<select className='form-select select'>
 					<option value='balance'>Saldo</option>
 					<option value='statement'>Extrato</option>
 					<option value='pay'>Pagamentos</option>
@@ -87,7 +105,7 @@ const Header = ()=>{
 					<option value='transfer'>Transferências</option>
 				</select>
 			</div>
-			<AiOutlineLogout style={{fontSize:'2rem', cursor:'pointer'}}
+			<AiOutlineLogout className='logout-icon'
 				onClick={logout}/>
 		  </Container>
 }
