@@ -13,7 +13,8 @@ const Container = styled.div`
 	
 	.home-icon{
 		font-size: 2rem;
-
+		cursor: pointer;
+		
 		@media(max-width: 800px){
 			font-size: 1.3rem
 		}
@@ -21,6 +22,7 @@ const Container = styled.div`
 
 	.logout-icon{
 		font-size: 2rem;
+		cursor: pointer;
 
 		@media(max-width: 800px){
 			font-size: 1.3rem
