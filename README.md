@@ -1,1 +1,3 @@
-# fakebank-web
+# Fakebank
+
+Aplicação que simula operações bancárias
