@@ -11,6 +11,7 @@ import { Container } from './styled'
 const Deposit = ():JSX.Element=>{
 	const history = useNavigate()
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
+	const [isFocues, setIsFocused] = useState<boolean>(false)
 	const [form, setForm] = useState({
         cpf:'12345678913',
 		password:'123456',
