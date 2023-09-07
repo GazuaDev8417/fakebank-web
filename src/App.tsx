@@ -1,11 +1,12 @@
 import { BrowserRouter } from "react-router-dom"
 import { createGlobalStyle } from "styled-components"
 import Router from "./routes/router"
+const wallpaper = 'https://img.freepik.com/premium-vector/banking-finance-concept-illustration_387612-169.jpg'
 
 
 const GlobalStyle = createGlobalStyle`
   body{
-    background-image: url(/images/wallpaper.jpg);
+    background-image: url(${wallpaper});
     background-size: cover;
     background-position: center;
     color: whitesmoke;

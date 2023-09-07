@@ -11,7 +11,6 @@ import { Container } from './styled'
 const Deposit = ():JSX.Element=>{
 	const history = useNavigate()
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
-	const [isFocues, setIsFocused] = useState<boolean>(false)
 	const [form, setForm] = useState({
         cpf:'12345678913',
 		password:'123456',
@@ -84,13 +83,13 @@ const Deposit = ():JSX.Element=>{
 			 <Container>
 				<h3>Depositos</h3>
 				<form onSubmit={addCash}>					
-					<input className='form-control'
+					<input 
 						type='text' name='cpf' value={form.cpf} onChange={onChange}
 					 placeholder='CPF(somente números)' autoFocus required/>
-					<input className='form-control' 
+					<input  
 						type='text' name='value' value={form.value} onChange={onChange}
 					 placeholder='R$ 0,00' required/>
-					<input className='form-control' 
+					<input 
 						type='password' name='password' value={form.password} onChange={onChange}
 					 placeholder='Sua senha' required/>
 					<input type="submit" style={{display:'none'}} ref={inputSubmit}/>

@@ -89,13 +89,13 @@ const Statement = ()=>{
 			<Container className='content'>
 					<h3>Extrato</h3>
 				<form onSubmit={statement}>				
-					<input className='form-control'
+					<input 
 						name='cpf'
 						value={form.cpf}
 						onChange={onChange}
 						placeholder='CPF(somente números)'
 						required/>
-					<input className='form-control'
+					<input 
 						name='password'
 						value={form.password}
 						onChange={onChange}

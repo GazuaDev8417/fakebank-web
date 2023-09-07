@@ -64,7 +64,7 @@ const Login = ():JSX.Element=>{
 			<Container>
 				<h3 style={{textAlign:'center'}}>Acesse sua conta</h3>
 				<form onSubmit={register}>
-				<input className='form-control' 
+				<input  
 					type='email'
 					name='email'
 					value={form.email}
@@ -72,7 +72,7 @@ const Login = ():JSX.Element=>{
 					placeholder='nome@email.com'
 					required
 					autoFocus/>
-				<input className='form-control' 
+				<input  
 					type='password'
 					name='password'
 					value={form.password}

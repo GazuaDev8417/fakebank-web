@@ -57,6 +57,7 @@ export const Container = styled.div`
             cursor: pointer;
             background: rgba(0, 0, 50, .8);
             box-shadow: 1px 1px 2px;
+            transform: scale(1.1);
         }
 
         &:active{

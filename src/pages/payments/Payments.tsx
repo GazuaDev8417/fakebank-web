@@ -88,34 +88,34 @@ const Payments = ():JSX.Element=>{
 			 <Container>
 				<h3>Pagamentos</h3>
 				<form onSubmit={pay}>					
-					<input className='form-control'
+					<input 
 						type='text'
 						name='cpf'
 						value={form.cpf}
 						onChange={onChange}
 					 	placeholder='CPF(somente números)'
 						required/>
-					<input className='form-control'
+					<input 
 						type='date'
 						name='initialDate'
 						value={form.initialDate}
 						onChange={onChange}
 						required/>
-					<input className='form-control'
+					<input 
 						type='text'
 						name='description'
 						value={form.description}
 						onChange={onChange}
 					 	placeholder='Descrição'
 						required/>
-					<input className='form-control'
+					<input 
 						type='text'
 						name='value'
 						value={form.value}
 						onChange={onChange}
 						placeholder='Valor R$ 0,00' 
 						required/>
-					<input className='form-control'
+					<input 
 						type='password'
 						name='password'
 						value={form.password}

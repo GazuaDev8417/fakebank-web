@@ -84,19 +84,19 @@ const Transfer = ()=>{
 			 <Container>
 				<h3>Transferências</h3>
 				<form onSubmit={transfer}>					
-					<input className='form-control'
+					<input 
 						type='text' name='cpf' value={form.cpf}
 					 onChange={onChange} placeholder='CPF(somente números)' autoFocus required/>
-					<input className='form-control'
+					<input 
 						type='text' name='recipientName' value={form.recipientName}
 					 onChange={onChange} placeholder='Nome do destinatário' required/>
-					<input className='form-control'
+					<input 
 						type='text' name='recipientCpf' value={form.recipientCpf}
 					 onChange={onChange} placeholder='CPF do destinatário' required/>
-					<input className='form-control' 
+					<input  
 						type='text' name='value' value={form.value} onChange={onChange}
 					 placeholder='Valor R$ 0,00'required/>
-					<input className='form-control'
+					<input 
 						type='password' name='password' value={form.password} onChange={onChange}
 					 placeholder='Sua senha' required/>
 					<input type="submit" style={{display:'none'}} ref={inputSubmit}/>

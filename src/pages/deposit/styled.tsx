@@ -30,7 +30,7 @@ export const Container = styled.div`
         background: transparent;
         border: 1px solid;
         outline: none;
-    } 
+    }
 
     .btn-container{
         margin-top: 15px;

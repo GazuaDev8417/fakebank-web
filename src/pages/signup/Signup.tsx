@@ -69,22 +69,22 @@ const Signup = ()=>{
 			<Container>
 			<h3>Cadastre-se</h3>
 			<form onSubmit={signup}>
-				<input className='form-control' 
+				<input  
 					type='text' name='name' value={form.name} onChange={onChange}
 				 	placeholder='Nome de usuário' autoFocus required/>				
-				<input className='form-control'
+				<input 
 					type='email' name='email' value={form.email} onChange={onChange}
 				 	placeholder='E-mail' required/>
-				<input className='form-control' name='cpf'
+				<input  name='cpf'
 					type='text' value={form.cpf} onChange={onChange}
 					placeholder='CPF(somente números)' required/>
-				<input className='form-control'
+				<input 
 					type='date' name='initialDate' value={form.initialDate} onChange={onChange}
 				 	required/>
-				<input className='form-control'
+				<input 
 					type='password' name='password' value={form.password} onChange={onChange}
 				 	placeholder='Senha' required/>
-				<input className='form-control'
+				<input 
 					type='password' name='confPassword' value={form.confPassword} onChange={onChange}
 				 	placeholder='Confirme sua senha'/>
 				<input type="submit" style={{display:'none'}} ref={inputSubmit}/>

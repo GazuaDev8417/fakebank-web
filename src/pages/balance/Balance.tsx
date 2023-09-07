@@ -81,14 +81,14 @@ const Balance = ():JSX.Element=>{
 		  <Container className='content'>
 				<h3>Consulta de saldo</h3>
 			<form onSubmit={getBalance}>				
-				<input className='form-control' 
+				<input  
 					name='cpf'
 					value={form.cpf}
 					onChange={onChange}
 				 	type='text'
 					placeholder='CPF(somente números)'
 					required/>
-				<input className='form-control' 
+				<input  
 					name='password' value={form.password} onChange={onChange}
 				 type='password' placeholder='Sua senha' autoFocus required/>
 				<input type="submit" style={{display:'none'}} ref={inputSubmit}/>
