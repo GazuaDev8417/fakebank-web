@@ -92,7 +92,7 @@ const Signup = ()=>{
 					<div className='btn' onClick={limpar}>
 						Limpar
 					</div>
-					<div className='btn' onClick={()=> inputSubmit.current?.click()} >Acessar</div>
+					<div className='btn' onClick={()=> inputSubmit.current?.click()} >Registrar</div>
 				</div>
 			</form>
 		  </Container>

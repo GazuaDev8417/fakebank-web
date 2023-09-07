@@ -97,7 +97,7 @@ const Deposit = ():JSX.Element=>{
 						<div className='btn' onClick={limpar}>
 							Limpar
 						</div>
-						<div className='btn' onClick={()=> inputSubmit.current?.click()} >Acessar</div>
+						<div className='btn' onClick={()=> inputSubmit.current?.click()} >Depositar</div>
 					</div>
 				</form>
 			  </Container>

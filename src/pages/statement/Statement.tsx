@@ -108,7 +108,7 @@ const Statement = ()=>{
 						<div className='btn' onClick={limpar}>
 							Limpar
 						</div>
-						<div className='btn' onClick={()=> inputSubmit.current?.click()} >Acessar</div>
+						<div className='btn' onClick={()=> inputSubmit.current?.click()} >Consultar</div>
 					</div>
 					{transaction.length > 0 ? (
 						<div style={{margin:'30px', width:'100%', textAlign:'center',fontSize:'1.5rem'}}>
