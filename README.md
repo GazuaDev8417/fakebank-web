@@ -1,3 +1,6 @@
 # Fakebank
 
-Aplicação que simula operações bancárias
+Aplicação que simula as mais básicas operações bancárias.
+
+
+>https://gazuadev8417.github.io/fakebank-web/
