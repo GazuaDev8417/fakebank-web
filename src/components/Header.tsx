@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AiOutlineHome, AiOutlineLogout } from 'react-icons/ai'
-import { useState } from 'react'
+import { IoMenu } from 'react-icons/io5'
 import { Container } from './headerStyled'
 
 
@@ -10,17 +11,11 @@ import { Container } from './headerStyled'
 
 const Header = ():JSX.Element=>{
 	const history = useNavigate()
-	const [selectedOption, setSelectedOption] = useState<string | undefined>()
+	const [isToggled, setIsToggled] = useState<boolean>(false)
 
-
-	const handleSelect = (event:React.ChangeEvent<HTMLSelectElement>):void=>{
-		const newOption = event.target.value
-
-		if(newOption !== ''){
-			history(`/${newOption}`)
-		}
-
-		setSelectedOption(newOption)
+console.log(isToggled)
+	const toggleClass = ()=>{
+		setIsToggled(!isToggled)
 	}
 
 
@@ -35,27 +30,22 @@ const Header = ():JSX.Element=>{
 	}
 
 
-	return<Container>
-			<AiOutlineHome className='home-icon'
+	return(
+		<Container>
+			<AiOutlineHome className='header-icon'
 				onClick={()=> history('/fakebank-web')} />
-			<div id='btn-container'>
-				<div className='btn-header' onClick={()=> history('/balance')}>Saldo</div>
-				<div className='btn-header' onClick={()=> history('/statement')}>Extrato</div>
-				<div className='btn-header' onClick={()=> history('/pay')}>Pagamentos</div>
-				<div className='btn-header' onClick={()=> history('/transfer')}>Transferências</div>
-				<div className='btn-header' onClick={()=> history('/deposit')}>Deposito</div>
+			<div className={`btn-container ${isToggled ? 'active' : ''}`}>
+				<div className='btn-header-container'>
+					<div className='btn-header' onClick={()=> history('/balance')}>Saldo</div>
+					<div className='btn-header' onClick={()=> history('/statement')}>Extrato</div>
+					<div className='btn-header' onClick={()=> history('/pay')}>Pagamentos</div>
+					<div className='btn-header' onClick={()=> history('/transfer')}>Transferências</div>
+					<div className='btn-header' onClick={()=> history('/deposit')}>Deposito</div>
+				</div>
 			</div>
-			<div id='select'>
-				<select className='form-select select' value={selectedOption} onChange={handleSelect}>
-					<option value='balance'>Saldo</option>
-					<option value='statement'>Extrato</option>
-					<option value='pay'>Pagamentos</option>
-					<option value='deposit'>Deposito</option>
-					<option value='transfer'>Transferências</option>
-				</select>
-			</div>
-			<AiOutlineLogout className='logout-icon'
-				onClick={logout}/>
-		  </Container>
+			<IoMenu className='header-icon menu' onClick={toggleClass} />
+			<AiOutlineLogout className='header-icon' onClick={logout}/>
+		</Container>
+	)
 }
 export default Header
