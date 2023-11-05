@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AiOutlineHome, AiOutlineLogout } from 'react-icons/ai'
-import { IoMenu } from 'react-icons/io5'
+import { IoMenu, IoCloseSharp } from 'react-icons/io5'
 import { Container } from './headerStyled'
 
 
@@ -13,7 +13,7 @@ const Header = ():JSX.Element=>{
 	const history = useNavigate()
 	const [isToggled, setIsToggled] = useState<boolean>(false)
 
-console.log(isToggled)
+
 	const toggleClass = ()=>{
 		setIsToggled(!isToggled)
 	}
@@ -43,7 +43,10 @@ console.log(isToggled)
 					<div className='btn-header' onClick={()=> history('/deposit')}>Deposito</div>
 				</div>
 			</div>
-			<IoMenu className='header-icon menu' onClick={toggleClass} />
+			{
+				!isToggled ? <IoMenu className='header-icon menu' onClick={toggleClass} />
+				: <IoCloseSharp className='header-icon menu' onClick={toggleClass} />
+			}
 			<AiOutlineLogout className='header-icon' onClick={logout}/>
 		</Container>
 	)
