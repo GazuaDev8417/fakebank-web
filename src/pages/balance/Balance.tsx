@@ -76,10 +76,11 @@ const Balance = ():JSX.Element=>{
 	
 
 //===============================Renderizaão===========================
-	return<div>
+	return(
+		<div>
 		  <Header/>
 		  <Container className='content'>
-				<h3>Consulta de saldo</h3>
+			<h3>Consulta de saldo</h3>
 			<form onSubmit={getBalance}>				
 				<input  
 					name='cpf'
@@ -90,7 +91,7 @@ const Balance = ():JSX.Element=>{
 					required/>
 				<input  
 					name='password' value={form.password} onChange={onChange}
-				 type='password' placeholder='Sua senha' autoFocus required/>
+				 	type='password' placeholder='Sua senha' autoFocus required/>
 				<input type="submit" style={{display:'none'}} ref={inputSubmit}/>
 				<div className='btn-container'>
 					<div className='btn' onClick={limpar}>
@@ -102,5 +103,6 @@ const Balance = ():JSX.Element=>{
 			</form>
 		   </Container>		   
 		  </div>
+	)
 }
 export default Balance

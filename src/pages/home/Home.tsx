@@ -5,23 +5,23 @@ import { useEffect } from 'react'
 
 //+======================Style======================
 const Container = styled.div`
-	h1{
-		text-align: center;
-		margin-bottom: 20vh;
+	text-align: center;
+
+	header{
+		margin: 10vh 0;
 	}
 
 	.access-btn{
 		background-color: transparent;
-		text-align: center;
 		border-radius: 10px;
+		border: none;
+		font-size: 1rem;
 		box-shadow: 3px 3px 6px;
-		width: 20vw;
-		padding: 10px;
-		margin: auto;
-		margin-bottom: 80vh;
+		padding: 10px 0;
 		color: lightgray;
 		cursor: pointer;
 		transition: .5s;
+		width: 25vw;
 	}
 	
 	.access-btn:hover{
@@ -52,10 +52,16 @@ const Home = ()=>{
 
 	}, [])
 
-	return<Container>
-			<h1>Bem vindos ao Fakebank</h1>
-			<div className='access-btn' 
-				onClick={()=> history('/login')}>Acessar</div>
-		  </Container>
+	return(
+		<Container>
+			<header>
+				<h1>Bem vindos ao Fakebank</h1>
+			</header>
+			<main>
+				<button className='access-btn' 
+					onClick={()=> history('/login')}>Acessar</button>
+			</main>
+		</Container>
+	)
 }
 export default Home

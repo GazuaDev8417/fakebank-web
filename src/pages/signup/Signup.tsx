@@ -63,39 +63,44 @@ const Signup = ()=>{
 	}
 
 //=========================Render=======================================
-	return<div>
+	return(
+		<main>
 			<MdArrowBackIosNew onClick={()=> history('/login')} 
 				style={{fontSize:'2rem', cursor:'pointer', marginBottom:30}}/> 
 			<Container>
-			<h3>Cadastre-se</h3>
-			<form onSubmit={signup}>
-				<input  
-					type='text' name='name' value={form.name} onChange={onChange}
-				 	placeholder='Nome de usuário' autoFocus required/>				
-				<input 
-					type='email' name='email' value={form.email} onChange={onChange}
-				 	placeholder='E-mail' required/>
-				<input  name='cpf'
-					type='text' value={form.cpf} onChange={onChange}
-					placeholder='CPF(somente números)' required/>
-				<input 
-					type='date' name='initialDate' value={form.initialDate} onChange={onChange}
-				 	required/>
-				<input 
-					type='password' name='password' value={form.password} onChange={onChange}
-				 	placeholder='Senha' required/>
-				<input 
-					type='password' name='confPassword' value={form.confPassword} onChange={onChange}
-				 	placeholder='Confirme sua senha'/>
-				<input type="submit" style={{display:'none'}} ref={inputSubmit}/>
-				<div className='btn-container'>
-					<div className='btn' onClick={limpar}>
-						Limpar
+				<header>
+					<h3>Cadastre-se</h3>
+				</header>
+				<form onSubmit={signup}>
+					<input  
+						type='text' name='name' value={form.name} onChange={onChange}
+						placeholder='Nome de usuário' autoFocus required/>				
+					<input 
+						type='email' name='email' value={form.email} onChange={onChange}
+						placeholder='E-mail' required/>
+					<input  name='cpf'
+						type='text' value={form.cpf} onChange={onChange}
+						placeholder='CPF(somente números)' required/>
+					<input 
+						type='date' name='initialDate' value={form.initialDate} onChange={onChange}
+						required/>
+					<input 
+						type='password' name='password' value={form.password} onChange={onChange}
+						placeholder='Senha' required/>
+					<input 
+						type='password' name='confPassword' value={form.confPassword} onChange={onChange}
+						placeholder='Confirme sua senha'/>
+					<input type="submit" style={{display:'none'}} ref={inputSubmit}/>
+					<div className='btn-container'>
+						<div className='btn' onClick={limpar}>
+							Limpar
+						</div>
+						<div className='btn' onClick={()=> inputSubmit.current?.click()} >Registrar</div>
 					</div>
-					<div className='btn' onClick={()=> inputSubmit.current?.click()} >Registrar</div>
-				</div>
-			</form>
-		  </Container>
-		  </div>
+				</form>
+			</Container>
+		</main>
+	)
+		
 }
 export default Signup

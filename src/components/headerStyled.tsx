@@ -60,6 +60,11 @@ export const Container = styled.div`
             display: block;
         }
 
+        .menu:active{
+            transform: rotate(180deg);
+            transition: 1.5s;
+        }
+
         .btn-container{
             display: flex;
             justify-content: center;
