@@ -2,22 +2,22 @@ import styled from 'styled-components'
 
 
 
-export const Container = styled.div`
-    padding: 10px;
+export const Container = styled.main`
     margin: auto;
-    width: 40vw;
-    border-radius: 10px;
-    box-shadow: 3px 3px 7px;
+    width: 50vw;
 
     h3{
         text-align: center;
     }
-    form{
+
+    form{        
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 15px;
-        margin: 10px;		
+        gap: 15px; 
+        padding: 30px 0;
+        border-radius: 10px;
+        box-shadow: 3px 3px 7px;
     }
 
     input{
@@ -32,16 +32,12 @@ export const Container = styled.div`
         outline: none;
     } 
 
-    input[type='date']{
-        width: 60%;
-    }
-
     .btn-container{
         margin-top: 15px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 63%;		
+        width: 60%;
     }
 
     .btn{
@@ -60,30 +56,15 @@ export const Container = styled.div`
         &:active{
             transform: scale(.9);
         }
-
-        @media(max-width: 800px){
-            width: 10%;
-            display: flex;
-            justify-content: center;
-        } 
     }
 
-    @media(max-width: 615px){
-        input{
-            font-size: .8rem;
-        }
-
-        .btn{
-            font-size: .8rem;
-        }
+/* ---------------MEDIA QUERY----------------- */
+    @media(max-width: 1200px){
+            width: 50vw;
     }
 
-    @media(max-width: 1000px){
-        width: 60%;
-    }
-
-    @media(max-width: 595px){
-        width: 80%;
+    @media(max-width: 800px){
+            width: 70vw;
     }
 
 `

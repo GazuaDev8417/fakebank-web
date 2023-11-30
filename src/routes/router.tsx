@@ -11,7 +11,8 @@ import Signup from '../pages/signup/Signup'
 
 
 const Router = ():JSX.Element=>{
-	return<Routes>
+	return(
+		<Routes>
 			<Route path='/fakebank-web' element={<Home/>}/>
 			<Route path='/login' element={<Login/>}/>
 			<Route path='/signup' element={<Signup/>} />
@@ -20,6 +21,7 @@ const Router = ():JSX.Element=>{
 			<Route path='/pay' element={<Payments/>}/>
 			<Route path='/statement' element={<Statement/>}/>
 			<Route path='/transfer' element={<Transfer/>}/>
-		  </Routes>
+		</Routes>
+	)
 }
 export default Router

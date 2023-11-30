@@ -2,7 +2,8 @@ import React, {useState, useEffect, useRef} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import { url } from '../../constants/urls'
 import axios from 'axios'
-import { Container, FootDiv } from './styled'
+import { Container } from './styled'
+import Modal from '../../components/Modal'
 
 
 
@@ -10,6 +11,7 @@ import { Container, FootDiv } from './styled'
 const Login = ():JSX.Element=>{
 	const history = useNavigate()
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
+	const [showModal, setShowModal] = useState<boolean>(false)
 	const [form, setForm] = useState({
 		email:'visitante@email.com',
 		password:'123456'
@@ -24,6 +26,15 @@ const Login = ():JSX.Element=>{
 		}
 
 	}, [])
+
+	useEffect(()=>{
+        const isMobileDevice = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+
+        if(isMobileDevice){
+            setShowModal(true)
+        }
+    }, [])
+
 
 
 	const onChange = (e:React.ChangeEvent<HTMLInputElement>):void=>{
@@ -60,36 +71,43 @@ const Login = ():JSX.Element=>{
 
 //=========================Render=======================================
 	return(
-		<div style={{marginTop:'10%'}}>
-			<Container>
-				<h3 style={{textAlign:'center'}}>Acesse sua conta</h3>
+		<Container>
+			<header>
+				<h3>Acesse sua conta</h3>
+			</header>
+			{ showModal && <Modal setShowModal={setShowModal}/> }
+			<main>
 				<form onSubmit={register}>
-				<input  
-					type='email'
-					name='email'
-					value={form.email}
-					onChange={onChange}
-					placeholder='nome@email.com'
-					required
-					autoFocus/>
-				<input  
-					type='password'
-					name='password'
-					value={form.password}
-					onChange={onChange}
-					placeholder='Senha'
-					required/>
-				<input type="submit" style={{display:'none'}} ref={inputSubmit}/>
-				<div className='btn-container'>
-					<div className='btn' onClick={limpar}>
-						Limpar
+					<input  
+						type='email'
+						name='email'
+						value={form.email}
+						onChange={onChange}
+						placeholder='nome@email.com'
+						required
+						autoFocus/>
+					<input  
+						type='password'
+						name='password'
+						value={form.password}
+						onChange={onChange}
+						placeholder='Senha'
+						required/>
+					<input type="submit" style={{display:'none'}} ref={inputSubmit}/>
+					<div className='btn-container'>
+						<button type='button' className='btn' onClick={limpar}>
+							Limpar
+						</button>
+						<button 
+							type='submit'
+							className='btn' onClick={()=> inputSubmit.current?.click()} >Acessar</button>						
 					</div>
-					<div className='btn' onClick={()=> inputSubmit.current?.click()} >Acessar</div>
-				</div>
 				</form>
-			</Container>
-			<FootDiv>Clique <Link to='/signup'>aqui</Link> para abrir uma conta.</FootDiv>
-		</div>
+			</main>
+			<footer>
+				<p>Clique <Link to='/signup'>aqui</Link> para abrir uma conta.</p>
+			</footer>
+		</Container>
 	)	
 }
 export default Login

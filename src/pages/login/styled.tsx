@@ -2,18 +2,19 @@ import styled from 'styled-components'
 
 
 export const Container = styled.div`
-    margin: auto;
-    width: 40vw;	
-    border-radius: 10px;
-    box-shadow: 3px 3px 7px;
-    padding: 5px 0 30px;    
+    display: grid;
+    justify-items: center;
 
     form{
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 40vw;
         gap: 15px;
-        margin: 10px;
+        margin: 10vh 0;
+        padding: 30px 0;
+        border-radius: 10px;
+        box-shadow: 3px 3px 7px;
     }
 
     input{
@@ -34,10 +35,6 @@ export const Container = styled.div`
         align-items: center;
         justify-content: space-between;
         width: 67%;
-        
-        @media(max-width: 900px){
-            width: 70%;
-        }
     }
 
     .btn{
@@ -45,6 +42,7 @@ export const Container = styled.div`
         border-radius: 5px;
         padding: 5px 25px;
         color: whitesmoke;
+        background: transparent;
         transition: .5s;
 
         &:hover{
@@ -55,30 +53,18 @@ export const Container = styled.div`
 
         &:active{
             transform: scale(.9);
-        }
-
-        @media(max-width: 800px){
-            width: 10%;
-            display: flex;
-            justify-content: center;
-        }        
+        }       
     }
-
-    @media(max-width: 615px){
-        input{
-            font-size: .8rem;
-        }
-
-        .btn{
-            font-size: .8rem;
+/* ---------------MEDIA QUERY----------------- */
+    @media(max-width: 1200px){
+        form{
+            width: 50vw;
         }
     }
 
-    @media(max-width: 1000px){
-        width: 60%;
+    @media(max-width: 800px){
+        form{
+            width: 70vw;
+        }
     }
-`
-export const FootDiv = styled.footer`
-    text-align: center;
-    margin-top: 15vh;
-`
+` 
