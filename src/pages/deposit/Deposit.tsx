@@ -12,7 +12,7 @@ const Deposit = ():JSX.Element=>{
 	const history = useNavigate()
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
 	const [form, setForm] = useState({
-        cpf:'12345678913',
+        cpf:'12345678911',
 		password:'123456',
         value:''
 	})
@@ -57,7 +57,11 @@ const Deposit = ():JSX.Element=>{
 		}).catch(err=>{
 			const msg = err.response.data
 			if(msg === 'jwt expired'){
-				alert(`Token expirado\nPor motivos de segurança você deve efetuar login novamente`)
+				const decide = window.confirm(`Token expirado\nPor motivos de segurança você deve efetuar login novamente`)
+				if(decide){
+					localStorage.clear()
+					history('/login')
+				}
 			}else{
 				alert(err.response.data)
 			}

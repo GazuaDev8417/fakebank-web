@@ -20,9 +20,10 @@ interface Transaction{
 const Statement = ()=>{
 	const history = useNavigate()
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
+	const divRef = useRef<HTMLDivElement>(null)
 	const [transaction, setTransaction] = useState<Transaction[]>([])
 	const [form, setForm] = useState({
-        cpf:'12345678913',
+        cpf:'12345678911',
 		password:'123456',
 	})
 
@@ -61,14 +62,24 @@ const Statement = ()=>{
 				Authorization: localStorage.getItem('token')
 			},
 			data: body
-		}).then(res=>{
-			setTransaction(res.data)
-		}).catch(err=>{
-			const msg = err.response.data.message
-			if(msg === 'jwt expired'){
-				alert(`Token expirado\nPor motivos de segurança você deve efetuar login novamente`)
+		}).then(res=>{			
+			if(res.data.length === 0 && divRef.current){
+				divRef.current.textContent = ''
+				const text = document.createTextNode('Sem movimentações na conta até a presente data')
+				divRef.current.appendChild(text)
 			}else{
-				alert(err.response.data.message)
+				setTransaction(res.data)
+			}		
+		}).catch(err=>{
+			const msg = err.response.data
+			if(msg === 'jwt expired'){
+				const decide = window.confirm(`Token expirado\nPor motivos de segurança você deve efetuar login novamente`)
+				if(decide){
+					localStorage.clear()
+					history('/login')
+				}
+			}else{
+				alert(err.response.data)
 			}
 		})
 
@@ -111,6 +122,21 @@ const Statement = ()=>{
 						<div className='btn' onClick={()=> inputSubmit.current?.click()} >Consultar</div>
 					</div>
 					{transaction.length > 0 ? (
+						<>
+							<div style={{width:'100%', display:'flex', alignItems:'center', flexDirection:'column', gap:10, marginBottom:30, fontSize:'1.5rem'}}>
+								Extrato:
+								<div style={{border:'1px solid', width:'90%'}}/>
+							</div>
+							{transaction && transaction.map(state=>{
+								return <Card key={state.id}>
+										<b>Valor: </b>{state.value}<br/>
+										<b>Data: </b>{convertDate(state.date)}<br/>
+										<b>Descrição: </b>{state.description}<hr/>
+									</Card>
+							})}
+						</>
+					) : <div ref={divRef}></div>}
+					{/* {transaction.length > 0 ? (
 						<div style={{margin:'30px', width:'100%', textAlign:'center',fontSize:'1.5rem'}}>
 							Resultado
 							<div style={{border:'1px solid', width:'100%'}}/>
@@ -122,7 +148,7 @@ const Statement = ()=>{
 								<b>Data: </b>{convertDate(state.date)}<br/>
 								<b>Descrição: </b>{state.description}<hr/>
 							   </Card>
-					})}
+					})} */}
 				</form>
 			</Container>
 		  </div>
