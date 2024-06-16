@@ -1,4 +1,5 @@
-import {useState, useEffect, useRef} from 'react'
+import {useState, useEffect, useRef, useContext} from 'react'
+import Context from '../../global/Context.tsx'
 import axios from 'axios'
 import {url} from '../../constants/urls'
 import Header from '../../components/Header.tsx'
@@ -10,23 +11,24 @@ import { Container } from './styled'
 
 //==========================Component=======================
 const Balance = ():JSX.Element=>{
+	const { states, requests } = useContext(Context)
+	const account = states.account
+	let cpfValue = account.email === 'visitante@email.com' ? '12345678911' : '12345678912'
     const result = useRef<HTMLParagraphElement | null>(null)
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
 	const history = useNavigate()
 	const [form, setForm] = useState({
-        cpf:'12345678911',
+        cpf: cpfValue,
 		password:'123456'
 	})
 
-
-
 	useEffect(()=>{
 		const token = localStorage.getItem('token')
-
 		if(token === null){
 			history('/')
 		}
 
+		requests.findById()
 	}, [])
 
 

@@ -1,4 +1,5 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useContext} from 'react'
+import Context from '../../global/Context'
 import {Link, useNavigate} from 'react-router-dom'
 import { url } from '../../constants/urls'
 import axios from 'axios'
@@ -9,6 +10,7 @@ import Modal from '../../components/Modal'
 
 
 const Login = ():JSX.Element=>{
+	const { states } = useContext(Context)
 	const history = useNavigate()
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
 	const [showModal, setShowModal] = useState<boolean>(false)

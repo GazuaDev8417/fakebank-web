@@ -1,4 +1,5 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useContext} from 'react'
+import Context from '../../global/Context'
 import axios from 'axios'
 import {url} from '../../constants/urls'
 import Header from '../../components/Header'
@@ -9,10 +10,13 @@ import { Container } from './styled'
 
 //===================Inicio do componente funcional==========================
 const Deposit = ():JSX.Element=>{
+	const { states, requests } = useContext(Context)
+	const account = states.account
+	let cpfValue = account.email === 'visitante@email.com' ? '12345678911' : '12345678912'
 	const history = useNavigate()
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
 	const [form, setForm] = useState({
-        cpf:'12345678911',
+        cpf:cpfValue,
 		password:'123456',
         value:''
 	})
@@ -25,6 +29,7 @@ const Deposit = ():JSX.Element=>{
 			history('/')
 		}
 
+		requests.findById()
 	}, [])
 
 

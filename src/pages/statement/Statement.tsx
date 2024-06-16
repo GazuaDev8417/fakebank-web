@@ -1,4 +1,5 @@
-import {useState, useEffect, useRef} from 'react'
+import {useState, useEffect, useRef, useContext} from 'react'
+import Context from '../../global/Context.tsx'
 import Header from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
 import { url } from '../../constants/urls'
@@ -18,12 +19,15 @@ interface Transaction{
 
 //==========================Component=======================
 const Statement = ()=>{
+	const { states, requests } = useContext(Context)
+	const account = states.account
+	let cpfValue = account.email === 'visitante@email.com' ? '12345678911' : '12345678912'
 	const history = useNavigate()
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
 	const divRef = useRef<HTMLDivElement>(null)
 	const [transaction, setTransaction] = useState<Transaction[]>([])
 	const [form, setForm] = useState({
-        cpf:'12345678911',
+        cpf:cpfValue,
 		password:'123456',
 	})
 
@@ -37,6 +41,7 @@ const Statement = ()=>{
 			history('/')
 		}
 
+		requests.findById()
 	}, [])
 
 

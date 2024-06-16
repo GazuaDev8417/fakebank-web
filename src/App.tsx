@@ -1,5 +1,6 @@
 import { BrowserRouter } from "react-router-dom"
 import { createGlobalStyle } from "styled-components"
+import { GlobalState } from "./global/Context"
 import Router from "./routes/router"
 const wallpaper = 'https://img.freepik.com/premium-vector/banking-finance-concept-illustration_387612-169.jpg'
 
@@ -24,8 +25,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalStyle/>
-      <Router/>
+      <GlobalState>  
+        <GlobalStyle/>
+        <Router/>
+      </GlobalState>
     </BrowserRouter>
   )
 }

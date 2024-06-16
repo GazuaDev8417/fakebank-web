@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react'
+import React, {useState, useRef, KeyboardEvent} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { MdArrowBackIosNew } from 'react-icons/md'
@@ -25,6 +25,12 @@ const Signup = ()=>{
 	const onChange = (e:React.ChangeEvent<HTMLInputElement>):void=>{
 		const {name, value} = e.target
 		setForm({...form, [name]: value})
+	}
+
+	const handleKeyPress = (e:KeyboardEvent<HTMLElement>)=>{
+		if(e.charCode < 48 || e.charCode > 57){
+			e.preventDefault()
+		}
 	}
 
 
@@ -80,6 +86,8 @@ const Signup = ()=>{
 						placeholder='E-mail' required/>
 					<input  name='cpf'
 						type='text' value={form.cpf} onChange={onChange}
+						maxLength={11}
+						onKeyPress={handleKeyPress}
 						placeholder='CPF(somente números)' required/>
 					<input 
 						type='date' name='initialDate' value={form.initialDate} onChange={onChange}

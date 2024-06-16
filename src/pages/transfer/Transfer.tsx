@@ -1,4 +1,5 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useContext} from 'react'
+import Context from '../../global/Context'
 import axios from 'axios'
 import {url} from '../../constants/urls'
 import Header from '../../components/Header'
@@ -8,11 +9,15 @@ import {Container} from './styled'
 
 //===========================Inicio do compoente funcional=========
 const Transfer = ()=>{
+	const { states, requests } = useContext(Context)
+	const account = states.account
+	let cpfValue = account.email === 'visitante@email.com' ? '12345678911' : '12345678912'
+	let recipientCpfValue = cpfValue === '12345678911' ? '12345678912' : '12345678911'
 	const history = useNavigate()
 	const inputSubmit = useRef<HTMLInputElement | null>(null)
 	const [form, setForm] = useState({
-        cpf:'12345678913',
-        recipientCpf: '12345678911',
+        cpf:cpfValue,
+        recipientCpf: recipientCpfValue,
         value:'',
 		password:'123456',
 		recipientName:'Visitante2'
@@ -25,6 +30,7 @@ const Transfer = ()=>{
 			history('/')
 		}
 
+		requests.findById()
 	}, [])
 
 
